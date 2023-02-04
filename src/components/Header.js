@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import icons8movie48 from "../assets/icons8-movie-48.png";
 
 export const Header = () => {
   return (
@@ -7,12 +8,12 @@ export const Header = () => {
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <NavLink to="/" className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-6 mr-3 sm:h-9"
-              alt="Flowbite Logo"
+              src={icons8movie48}
+              className="h-10 mr-3 sm:h-9"
+              alt="Cinefinder Logo"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Cinefinder
+              CineFinder
             </span>
           </NavLink>
           <div className="flex md:order-2">

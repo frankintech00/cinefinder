@@ -1,16 +1,19 @@
+import icons8Movie48 from "../assets/icons8-movie-48.png";
+import icons8f96 from "../assets/icons8-f-96.png";
+
 export const Footer = () => {
   return (
     <footer className="p-4 bg-white sm:p-6 dark:bg-gray-900">
       <div className="md:flex md:justify-between sm:flex sm:items-center sm:justify-between">
         <div className="mb-6 md:mb-0">
-          <a href="/" className="flex items-center">
+          <a href="#" className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8 mr-3"
-              alt="FlowBite Logo"
+              src={icons8f96}
+              className="w-6 h-6 mr-2"
+              alt="Frank Kelly Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Cinefinder
+            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+              Frank Kelly
             </span>
           </a>
         </div>
