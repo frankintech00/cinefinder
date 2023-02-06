@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useTitle } from "../hooks/useTitle";
 import Backup from "../assets/backup.png";
 
-export const MovieDetail = () => {
+export const MoviePage = () => {
   const params = useParams();
   const [movie, setMovie] = useState({});
 
@@ -17,7 +17,7 @@ export const MovieDetail = () => {
   useEffect(() => {
     async function fetchMovie() {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${params.id}?api_key=b80d59c33d6d57ed9c7e3713f91c188a`
+        `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_API_KEY}`
       );
       const json = await response.json();
       setMovie(json);
