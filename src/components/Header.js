@@ -22,9 +22,8 @@ export const Header = () => {
     "block py-2 pl-3 pr-4 text-gray-700 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
   return (
     <header>
-      <nav className="bg-white border-b-2 border-gray-200 shadow px-2 sm:px-4 py-2.5 dark:bg-gray-900 dark:border-b-2 dark:shadow-lg">
+      <nav className="bg-white border-b-2 border-gray-200 shadow px-2 sm:px-4 py-2.5 dark:bg-gray-900 dark:border-slate-700 dark:border-b-2 dark:shadow-lg">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
-          {/* Logo and Name */}
           <Link to="/" className="flex items-center">
             <img
               src={icons8movie48}
@@ -35,7 +34,7 @@ export const Header = () => {
               CineFinder
             </span>
           </Link>
-          {/* Logo and Name */}
+
           <div className="flex md:order-2">
             <button
               onClick={() => setDarkMode(!darkMode)}
