@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import icons8movie48 from "../assets/icons8-movie-48.png";
 
 export const Header = () => {
@@ -7,6 +7,8 @@ export const Header = () => {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
+  const navigate = useNavigate();
+
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
 
@@ -16,10 +18,19 @@ export const Header = () => {
       document.body.classList.remove("dark");
     }
   }, [darkMode]);
+
   const activeClass =
     "block py-2 pl-3 pr-4 text-white text-xl bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white";
-  const inactiveClass =
+  const inActiveClass =
     "block py-2 pl-3 pr-4 text-gray-700 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const queryTerm = event.target.search.value;
+    event.target.reset();
+    return navigate(`/search?q=${queryTerm}`);
+  };
+
   return (
     <header>
       <nav className="bg-white border-b-2 border-gray-200 shadow px-2 sm:px-4 py-2.5 dark:bg-gray-900 dark:border-slate-700 dark:border-b-2 dark:shadow-lg">
@@ -35,7 +46,7 @@ export const Header = () => {
             </span>
           </Link>
 
-          <div className="flex md:order-2">
+          <div id="mobile-nav" className="flex md:order-2">
             <button
               onClick={() => setDarkMode(!darkMode)}
               data-tooltip-target="navbar-search-example-toggle-dark-mode-tooltip"
@@ -71,7 +82,7 @@ export const Header = () => {
                 </svg>
               )}
             </button>
-            <button // Search Button hidden above md
+            <button
               onClick={() => setHidden(!hidden)}
               type="button"
               data-collapse-toggle="navbar-search"
@@ -111,13 +122,15 @@ export const Header = () => {
                 </svg>
                 <span className="sr-only">Search icon</span>
               </div>
-              <input
-                type="text"
-                id="search-navbar"
-                className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-                autoComplete="off"
-              />
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  id="search-navbar"
+                  className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search..."
+                  autoComplete="off"
+                />
+              </form>
             </div>
             <button
               onClick={() => setHidden(!hidden)}
@@ -150,7 +163,7 @@ export const Header = () => {
             id="navbar-search"
           >
             <div className="relative mt-3 md:hidden">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
                 <svg
                   className="w-5 h-5 text-gray-500"
                   aria-hidden="true"
@@ -165,21 +178,23 @@ export const Header = () => {
                   ></path>
                 </svg>
               </div>
-              <input
-                type="text"
-                id="search-navbar"
-                className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-                autoComplete="off"
-              />
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  id="search-navbar"
+                  className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search for a movie..."
+                  autoComplete="off"
+                />
+              </form>
             </div>
-            {/* Links */}
+
             <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    isActive ? activeClass : inactiveClass
+                    isActive ? activeClass : inActiveClass
                   }
                   end
                 >
@@ -190,7 +205,7 @@ export const Header = () => {
                 <NavLink
                   to="/movies/popular"
                   className={({ isActive }) =>
-                    isActive ? activeClass : inactiveClass
+                    isActive ? activeClass : inActiveClass
                   }
                 >
                   Popular
@@ -200,7 +215,7 @@ export const Header = () => {
                 <NavLink
                   to="/movies/top"
                   className={({ isActive }) =>
-                    isActive ? activeClass : inactiveClass
+                    isActive ? activeClass : inActiveClass
                   }
                 >
                   Top Rated
@@ -210,14 +225,13 @@ export const Header = () => {
                 <NavLink
                   to="/movies/upcoming"
                   className={({ isActive }) =>
-                    isActive ? activeClass : inactiveClass
+                    isActive ? activeClass : inActiveClass
                   }
                 >
-                  Coming Soon
+                  Upcoming
                 </NavLink>
               </li>
             </ul>
-            {/* Links */}
           </div>
         </div>
       </nav>

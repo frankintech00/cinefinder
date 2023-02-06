@@ -1,4 +1,3 @@
-import icons8Movie48 from "../assets/icons8-movie-48.png";
 import icons8f96 from "../assets/icons8-f-96.png";
 
 export const Footer = () => {
