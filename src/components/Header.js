@@ -3,15 +3,20 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import icons8movie48 from "../assets/icons8-movie-48.png";
 
 export const Header = () => {
+  // State hook to keep track of whether the navigation menu is hidden or not
   const [hidden, setHidden] = useState(true);
+  // State hook to keep track of the current dark mode setting
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
+  // Hook to allow navigation programmatically
   const navigate = useNavigate();
 
+  // UseEffect hook to persist the dark mode setting in local storage
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
 
+    // Add or remove "dark" class from the body element based on dark mode setting
     if (darkMode) {
       document.body.classList.add("dark");
     } else {
@@ -19,15 +24,22 @@ export const Header = () => {
     }
   }, [darkMode]);
 
+  // Styles for the active navigation link
   const activeClass =
     "block py-2 pl-3 pr-4 text-white text-xl bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white";
+  // Styles for inactive navigation links
   const inActiveClass =
     "block py-2 pl-3 pr-4 text-gray-700 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
 
+  // Function to handle form submission
   const handleSubmit = (event) => {
+    // Prevent default form submission behavior
     event.preventDefault();
+    // Get the value of the search input
     const queryTerm = event.target.search.value;
+    // Reset the form
     event.target.reset();
+    // Navigate to the search page with the query term
     return navigate(`/search?q=${queryTerm}`);
   };
 

@@ -4,18 +4,24 @@ import { useTitle } from "../hooks/useTitle";
 import Backup from "../assets/backup.png";
 
 export const MoviePage = () => {
+  // destructuring the hook useParams to get the id from the URL
   const params = useParams();
+
+  // destructuring the hook useState to manage the state of the movie data
   const [movie, setMovie] = useState({});
 
-  //eslint-disable-next-line
+  // calling the hook useTitle to set the page title with the movie title
   const pageTitle = useTitle(movie.title);
 
+  // determining the image to display based on whether the movie poster path exists or not
   const image = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     : Backup;
 
+  // hook useEffect to fetch movie data based on the id in the URL
   useEffect(() => {
     async function fetchMovie() {
+      // fetching movie data from the API
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_API_KEY}`
       );
@@ -26,8 +32,10 @@ export const MoviePage = () => {
     fetchMovie();
   }, [params.id]);
 
+  // a helper function to format the date in UK format
   function formatUKDate(date) {
     if (date) {
+      // splitting the date string into an array and rearranging it to UK format
       const dateArray = date.split("-");
       return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
     }
@@ -35,7 +43,7 @@ export const MoviePage = () => {
   }
 
   return (
-    <main className="p-10 mx-auto bg-black max-w-1280 min-h-90vh">
+    <main className="p-10 mx-auto bg-slate-100 dark:bg-slate-800 max-w-1280 min-h-90vh">
       <section className="flex flex-wrap justify-around py-5">
         <div className="max-w-sm">
           <img className="rounded" src={image} alt={movie.title} />

@@ -1,8 +1,12 @@
 import "./App.css";
+// Import the Header and Footer components from the './components' directory
 import { Header, Footer } from "./components";
+// Import the ALLRoutes component from the './routes/AllRoutes' directory
 import { ALLRoutes } from "./routes/AllRoutes";
 
+// Main component for the App
 function App() {
+  // Render the App component, consisting of the Header, ALLRoutes and Footer components
   return (
     <div className="App">
       <Header />
@@ -12,10 +16,9 @@ function App() {
   );
 }
 
+// Export the App component as the default export
 export default App;
 
-// TODO: 1. Add social links to footer
-// TODO: 2. Tidy up assets folder
 // TODO: 3. Add comments to code
 // TODO: 4. Add a 404 page
 // TODO: 5. Change the favicon

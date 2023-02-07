@@ -1,32 +1,51 @@
 import icons8f96 from "../assets/icons8-f-96.png";
 
+// Footer component, returns a footer element with links and a logo
 export const Footer = () => {
   return (
     <footer className="p-4 bg-white sm:p-6 dark:bg-gray-900">
+      {/* Footer container, using flex to align content */}
       <div className="md:flex md:justify-between sm:flex sm:items-center sm:justify-between">
+        {/* Logo container, with link to Frank Kelly's website */}
         <div className="mb-6 md:mb-0">
-          <a href="#" className="flex items-center">
+          <a
+            href="http://frankkelly.me/"
+            target="_blank"
+            className="flex items-center"
+            rel="noreferrer"
+          >
+            {/* Logo image */}
             <img
               src={icons8f96}
               className="w-6 h-6 mr-2"
               alt="Frank Kelly Logo"
             />
+            {/* Logo text */}
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               Frank Kelly
             </span>
           </a>
         </div>
+        {/* Copyright information */}
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2023{" "}
-          <a href="/" className="hover:underline">
+          © 2023 {/* Link to Frank Kelly's website */}
+          <a
+            href="http://frankkelly.me/"
+            target="_blank"
+            className="hover:underline"
+            rel="noreferrer"
+          >
             Frank Kelly
           </a>
           . All Rights Reserved.
         </span>
+        {/* Social media links container */}
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
-            href="#"
+            href="https://www.facebook.com/profile.php?id=100087877157418"
+            target="_blank"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+            rel="noreferrer"
           >
             <svg
               className="w-5 h-5"
@@ -43,8 +62,10 @@ export const Footer = () => {
             <span className="sr-only">Facebook page</span>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/frankintech00/?hl=en"
+            target="_blank"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+            rel="noreferrer"
           >
             <svg
               className="w-5 h-5"
@@ -61,8 +82,10 @@ export const Footer = () => {
             <span className="sr-only">Instagram page</span>
           </a>
           <a
-            href="#"
+            href="https://twitter.com/frankintech00"
+            target="_blank"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+            rel="noreferrer"
           >
             <svg
               className="w-5 h-5"
@@ -75,8 +98,10 @@ export const Footer = () => {
             <span className="sr-only">Twitter page</span>
           </a>
           <a
-            href="#"
+            href="https://github.com/frankintech00"
+            target="_blank"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+            rel="noreferrer"
           >
             <svg
               className="w-5 h-5"
@@ -91,24 +116,6 @@ export const Footer = () => {
               />
             </svg>
             <span className="sr-only">GitHub account</span>
-          </a>
-          <a
-            href="#"
-            className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="sr-only">Dribbbel account</span>
           </a>
         </div>
       </div>
