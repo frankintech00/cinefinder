@@ -16,9 +16,10 @@ The site is called "Cinefinder" and it is a movie search site built using ReactJ
 1. Clone this repository:
 
 ```powershell
-# PowerShell code block
+
 Write-Output "Hello, World!"
 
+```
 
 git clone https://github.com/<your-github-username>/cinefinder.git
 
@@ -42,4 +43,7 @@ npm start
 ## License
 
 This project is licensed under the MIT License.
+
+```
+
 ```
