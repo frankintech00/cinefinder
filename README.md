@@ -16,21 +16,21 @@ The site is called "Cinefinder" and it is a movie search site built using ReactJ
 1. Clone this repository:
 
 ```powershell
-
-Write-Output "Hello, World!"
-
-```
-
 git clone https://github.com/<your-github-username>/cinefinder.git
+```
 
 2. Install dependencies:
 
+```powershell
 cd cinefinder
 npm install
+```
 
 3. Start the development server:
 
+```powershell
 npm start
+```
 
 4. Open `http://localhost:3000` in your browser.
 
