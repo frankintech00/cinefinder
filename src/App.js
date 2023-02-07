@@ -18,6 +18,3 @@ function App() {
 
 // Export the App component as the default export
 export default App;
-
-// TODO: 9. Host on Netlify
-// TODO: 9. Share on Social Media
