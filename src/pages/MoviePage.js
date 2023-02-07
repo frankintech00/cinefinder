@@ -11,6 +11,7 @@ export const MoviePage = () => {
   const [movie, setMovie] = useState({});
 
   // calling the hook useTitle to set the page title with the movie title
+  // eslint-disable-next-line no-unused-vars
   const pageTitle = useTitle(movie.title);
 
   // determining the image to display based on whether the movie poster path exists or not
