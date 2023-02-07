@@ -19,7 +19,5 @@ function App() {
 // Export the App component as the default export
 export default App;
 
-// TODO: 7. Add a README.md file
-// TODO: 8. Add custom colors to the theme
 // TODO: 9. Host on Netlify
 // TODO: 9. Share on Social Media
