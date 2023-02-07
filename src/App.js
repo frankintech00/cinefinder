@@ -19,10 +19,6 @@ function App() {
 // Export the App component as the default export
 export default App;
 
-// TODO: 3. Add comments to code
-// TODO: 4. Add a 404 page
-// TODO: 5. Change the favicon
-// TODO: 6. Change page title and meta tags and descriptions
 // TODO: 7. Add a README.md file
 // TODO: 8. Add custom colors to the theme
 // TODO: 9. Host on Netlify
