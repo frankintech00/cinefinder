@@ -35,7 +35,7 @@ export const MoviePage = () => {
   }
 
   return (
-    <main>
+    <main className="p-10 mx-auto bg-black max-w-1280 min-h-90vh">
       <section className="flex flex-wrap justify-around py-5">
         <div className="max-w-sm">
           <img className="rounded" src={image} alt={movie.title} />
