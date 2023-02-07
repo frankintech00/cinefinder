@@ -26,6 +26,14 @@ export const MoviePage = () => {
     fetchMovie();
   }, [params.id]);
 
+  function formatUKDate(date) {
+    if (date) {
+      const dateArray = date.split("-");
+      return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+    }
+    return "";
+  }
+
   return (
     <main>
       <section className="flex flex-wrap justify-around py-5">
@@ -79,27 +87,33 @@ export const MoviePage = () => {
 
           <p className="my-4">
             <span className="mr-2 font-bold">Budget:</span>
-            <span>{movie.budget}</span>
+            <span>${new Intl.NumberFormat().format(movie.budget)}</span>
           </p>
 
           <p className="my-4">
-            <span className="mr-2 font-bold">Revenue:</span>
-            <span>{movie.revenue}</span>
+            <span className="mr-2 font-bold">Budget:</span>
+            <span>${new Intl.NumberFormat().format(movie.revenue)}</span>
           </p>
 
           <p className="my-4">
             <span className="mr-2 font-bold">Release Date:</span>
-            <span>{movie.release_date}</span>
+            <span>{formatUKDate(movie.release_date)}</span>
           </p>
 
           <p className="my-4">
-            <span className="mr-2 font-bold">IMDB Code:</span>
             <a
               href={`https://www.imdb.com/title/${movie.imdb_id}`}
               target="_blank"
               rel="noreferrer"
+              aria-label="View movie on IMDB"
             >
-              {movie.imdb_id}
+              <button className="imdb-logo-button" title="IMDB link">
+                <img
+                  className="w-32"
+                  src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png"
+                  alt="IMDB link to your movie"
+                />
+              </button>
             </a>
           </p>
         </div>
